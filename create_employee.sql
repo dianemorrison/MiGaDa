@@ -4,7 +4,7 @@ CREATE TABLE employee (
     employee_id int PRIMARY KEY AUTO_INCREMENT,
     f_name varchar(255),
     l_name varchar(255),
-    salary decimal,
+    salary decimal(9,2),
     bank_acc_num varchar(20),
     ni_num varchar(11)
 );
@@ -21,8 +21,8 @@ INSERT into employee
 ('Foghorn', 'Longhorn', 85000.00, 5566455444,'jj9855854');
 
  Create TABLE sales_employee (
-    sales_employee_id int PRIMARY KEY AUTO_INCREMENT,
-    employee_id int,
+      
+    employee_id int PRIMARY KEY,
     commission_rate decimal,
     num_sales int,
     FOREIGN KEY(employee_id)
@@ -36,27 +36,4 @@ VALUES(1, 7.5, 10),
 (3,11,22),
 (4,20,30);
 
-
--- 2. As a member of the HR team I want to be able to create a new delivery employee. 
--- I should be able to store a name, salary, bank account number and national insurance number
-
-CREATE TABLE delivery_employee (
-    delivery_employee_id int PRIMARY KEY AUTO_INCREMENT,
-    employee_id int,
-    FOREIGN KEY(employee_id)
-	REFERENCES employee(employee_id)
-);
-
-INSERT into delivery_employee
-(delivery_employee_id )
-VALUES(5),(6),(7),(8);
-
-SELECT * FROM employee
-
-
-
-
-
-
-
- 
+SELECT * FROM employee RIGHT JOIN sales_employee  USING (employee_id);
