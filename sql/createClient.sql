@@ -4,11 +4,13 @@ USE KainoosSoftworn_MiaG;
 
 CREATE TABLE client (
     client_id int PRIMARY KEY AUTO_INCREMENT,
-    client_name varchar(255),
-    client_address varchar(255),
-    phone_num varchar(20)
+    client_name varchar(255) NOT NULL,
+    client_address varchar(255) NOT NULL,
+    phone_num varchar(20) NOT NULL
 );
-
 
 INSERT INTO client(client_name, client_address, phone_num)
 VALUES('Kainos', '40 Botanic Avenue', '028 9087 0987');
+
+INSERT INTO client(client_name, client_address, phone_num)
+VALUES(NULL, '40 Botanic Avenue', '028 9087 0987');
